@@ -1,19 +1,20 @@
 import fastify from "fastify";
-import { PrismaClient } from "@prisma/client";
+import cors from '@fastify/cors';
+import { memoriesRoutes } from "./routes/memories";
 
 const app = fastify();
-const prisma = new PrismaClient();
+
+app.register(cors, {
+  origin: true,
+})
+
+app.register(memoriesRoutes);
 
 const port = 3333;
 
-app.get('/users', async () => {
-    const users = await prisma.user.findMany();
-    return users;
-})
-
-app.listen({ 
-    port, 
-    host: '0.0.0.0' 
+app.listen({
+  port,
+  host: '0.0.0.0'
 }).then(() => {
-    console.log(`Servidor NLW-SPACETIME rodando na porta http://localhost:${port}`)
+  console.log(`Servidor NLW-SPACETIME rodando na porta http://localhost:${port}`)
 })
