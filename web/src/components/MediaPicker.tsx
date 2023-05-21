@@ -30,7 +30,7 @@ export function MediaPicker() {
       {
         preview &&
           <img src={preview} alt=""
-            className="w-full bg-gray-800 aspect-video rounded-lg object-contain mb-2"
+            className="w-full bg-purple-950 aspect-video rounded-lg object-contain mb-2"
           />
       }
     </>

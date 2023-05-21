@@ -48,7 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Hero />
           </div>
 
-          <div className="flex flex-col p-16">
+          <div className="flex flex-col max-h-screen overflow-y-scroll">
             {children}
           </div>
         </main>
